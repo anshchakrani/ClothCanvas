@@ -1,0 +1,44 @@
+﻿@model ClothCanvas.Models.CustomProductModel
+
+@{
+    ViewData["Title"] = "Image and Text";
+}
+
+<div class="container">
+    <h1>Image, Text, and Product Details</h1>
+    <form asp-action="Create" asp-controller="CustomProduct" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="userId"/>
+        <input type="hidden" asp-for="productId"/>
+
+        <div class="form-group">
+            <label asp-for="prompt">Text Input (Prompt):</label>
+            <textarea asp-for="prompt" class="form-control" rows="5"></textarea>
+        </div>
+
+        <!--     public string? ImageUrl { get; set; } If image url is not null, display the image -->
+        <div class="form-group">
+            <div id="image-preview" style="text-align: center; margin-top: 10px;">
+                <img src="@Model.ImageUrl" style="max-width: 200px; max-height: 200px;" alt=""/>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+    
+        @if (Model.ImageUrl != null)
+        {
+            
+            @Html.BeginForm("AddToCart", "CustomProduct")
+            {
+                <input type="hidden" asp-for="productId"/>
+                <input type="hidden" asp-for="quantity" value="1"/>
+                <input type="hidden" asp-for="prompt"/>
+                <input type="hidden" asp-for="userId"/>
+                <input type="hidden" asp-for="ImageUrl"/>
+                <input type="hidden" asp-for="CustomProductURL"/>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            }
+            
+        }
+</div>

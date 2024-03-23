@@ -1,0 +1,14 @@
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\bin\Debug\net8.0\ClothCanvasData.deps.json
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\bin\Debug\net8.0\ClothCanvasData.runtimeconfig.json
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\bin\Debug\net8.0\ClothCanvasData.dll
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\bin\Debug\net8.0\ClothCanvasData.pdb
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.csproj.AssemblyReference.cache
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.GeneratedMSBuildEditorConfig.editorconfig
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.AssemblyInfoInputs.cache
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.AssemblyInfo.cs
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.csproj.CoreCompileInputs.cache
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.dll
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\refint\ClothCanvasData.dll
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.pdb
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ClothCanvasData.genruntimeconfig.cache
+D:\Capstones\Ansh Chakrani\ClothCanvas\ClothCanvasData\obj\Debug\net8.0\ref\ClothCanvasData.dll

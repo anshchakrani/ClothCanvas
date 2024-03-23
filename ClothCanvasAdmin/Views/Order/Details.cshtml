@@ -1,0 +1,66 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Order Details";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <h2>Order Details</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                <strong>Order ID:</strong> @Model.OrderId
+            </p>
+            <p>
+                <strong>Created At:</strong> @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
+            </p>
+            <p>
+                <strong>Status:</strong> @Model.Status
+            </p>
+            <p><strong>Total Price:</strong> $@Model.TotalPrice.ToString("0.00")</p>
+            <p>
+                <strong>User:</strong> @Model.User
+            </p>
+            <p>
+                <strong>User ID:</strong> @Model.UserId
+            </p>
+        </div>
+    </div>
+
+    <h3>Order Items</h3>
+    @if (Model.OrderItems != null && Model.OrderItems.Count > 0)
+    {
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>
+                        @item.Product.Name
+                        @if(item.CustomDetailURL != null)
+                        {
+                            <a href="@item.CustomDetailURL" target="_blank">Custom Details</a>
+                        }
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Product.Price.ToString("0.00")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No items in this order.</p>
+    }
+
+</div>

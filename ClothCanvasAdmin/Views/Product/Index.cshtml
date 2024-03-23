@@ -1,0 +1,52 @@
+﻿@model AllProductsViewModel
+
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<h2>All Products</h2>
+
+@* Supplier Filter *@
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <label asp-for="SelectedSupplierId"></label>
+        <select asp-for="SelectedSupplierId" class="form-control" asp-items="@(new SelectList(Model.Suppliers, "SupplierId", "Name"))">
+            <option value="">-- All Suppliers --</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+</form>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Products.First().Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Products.First().Description)</th>
+            <th>@Html.DisplayNameFor(m => m.Products.First().Price)</th>
+            <th>@Html.DisplayNameFor(m => m.Products.First().IsCustom)</th>
+            <th>Supplier</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.IsCustom</td>
+                <td>@product.Supplier.Name</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@product.ProductId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@product.ProductId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ClothCanvas.Entity.Product>
+
+@{
+    ViewData["Title"] = "Our Products";
+}
+<style>
+    .card {
+        border-radius: 10px;
+        overflow: hidden; /* Ensure that the image does not bleed outside the border-radius */
+    }
+
+    .card-img-top {
+        width: 100%; /* This makes the image responsive to the card width */
+        height: 200px; /* Fixed height for all images */
+        object-fit: cover; /* This will cover the area, cropping the image if necessary */
+    }
+
+    .card:hover {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.5s;
+    }
+
+    .card-title {
+        color: #003F62;
+        /*only one line*/
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
+    }
+</style>
+
+
+<h2>Our Products</h2>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-3">
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId" class="text-decoration-none decoration-none">
+                <div class="card mb-3 rounded-3">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text poppins-bold">$@product.Price</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewBag.Title = "My Orders";
+}
+
+<h2>My Orders</h2>
+
+@foreach (var order in Model)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            Order #@order.OrderId - @order.Status
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Total Price: $@order.TotalPrice</h5>
+            <p class="card-text">Order Date: @order.CreatedAt.ToString("yyyy-MM-dd")</p>
+            <p class="card-text">Order Items:</p>
+            <ul class="list-group">
+                @foreach (var item in order.OrderItems)
+                {
+                    <li class="list-group-item @if (item.CustomDetailURL != null) { <text>bg-success text-light</text> }">
+                        @item.Product.Name - Quantity: @item.Quantity - Price: $@item.Product.Price - @if(item.CustomDetailURL != null) { <text><a href="@item.CustomDetailURL" class="text-light">Custom Details</a></text> }
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}

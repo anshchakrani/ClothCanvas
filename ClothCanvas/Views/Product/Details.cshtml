@@ -1,0 +1,33 @@
+﻿@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImageUrl" class="card-img-top" alt="Image of @Model.Name" />
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <p><strong>Price:</strong> $@Model.Price</p>
+            <p><strong>Category:</strong> @Model.CategoryName</p>
+            <p><strong>Supplier:</strong> @Model.SupplierName</p>
+            @if (Model.IsCustom)
+            {
+                <p>This product can be customized.</p>
+            }
+            <form asp-action="AddToCart" asp-controller="Product" asp-route-productId="@Model.ProductId" asp-route-quantity="@Model.Quantity">
+                <div class="form-group row">
+                    <label asp-for="Quantity" class="col-sm-2 col-form-label">Quantity:</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Quantity" class="form-control" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@model ClothCanvasAdmin.Models.ProductCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Create New Product</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr/>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="SupplierId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="SupplierId" class="form-control" asp-items="@(new SelectList(Model.Suppliers, "SupplierId", "Name"))">
+                </select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))">
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Price" class="form-control"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="IsCustom" class="form-check-input"/>
+            <label asp-for="IsCustom" class="form-check-label"></label>
+        </div>
+        
+        <!--
+        public float Discount { get; set; } = 0;-->
+        
+        <div class="form-group">
+            <label asp-for="Discount" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Discount" class="form-control"/>
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MinimumOrderQuantity" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="MinimumOrderQuantity" class="form-control"/>
+                <span asp-validation-for="MinimumOrderQuantity" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ImageUrl" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="ImageUrl" class="form-control"/>
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
